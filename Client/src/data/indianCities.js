@@ -1,0 +1,22 @@
+export const indianCities = [
+  "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", "Surat", "Pune", "Jaipur", 
+  "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane", "Bhopal", "Visakhapatnam", "Patna", "Vadodara", "Ghaziabad", 
+  "Ludhiana", "Agra", "Nashik", "Faridabad", "Meerut", "Rajkot", "Varanasi", "Srinagar", "Aurangabad", "Dhanbad", 
+  "Amritsar", "Allahabad (Prayagraj)", "Ranchi", "Howrah", "Coimbatore", "Jabalpur", "Gwalior", "Vijayawada", "Jodhpur", 
+  "Madurai", "Raipur", "Kota", "Guwahati", "Chandigarh", "Solapur", "Hubli–Dharwad", "Bareilly", "Moradabad", "Mysore", 
+  "Gurgaon", "Aligarh", "Jalandhar", "Bhubaneswar", "Salem", "Mira-Bhayandar", "Warangal", "Thiruvananthapuram", "Guntur", 
+  "Bhiwandi", "Saharanpur", "Gorakhpur", "Bikaner", "Amravati", "Noida", "Jamshedpur", "Bhilai", "Cuttack", "Firozabad", 
+  "Kochi", "Bhavnagar", "Dehradun", "Durgapur", "Asansol", "Nanded", "Kolhapur", "Ajmer", "Gulbarga", "Jamnagar", 
+  "Ujjain", "Loni", "Siliguri", "Jhansi", "Ulhasnagar", "Jammu", "Sangli", "Mangalore", "Erode", "Belgaum", 
+  "Ambattur", "Tirunelveli", "Malegaon", "Gaya", "Jalgaon", "Udaipur", "Maheshtala", "Tiruppur", "Davanagere", 
+  "Kozhikode", "Akola", "Kurnool", "Bokaro Steel City", "Bellary", "Rajahmundry", "South Dumdum", "Bhagalpur", "Agartala", 
+  "Muzaffarpur", "Ahmednagar", "Mathura", "Kollam", "Avadi", "Kadapa", "Kamarhati", "Bilaspur", "Shahjahanpur", 
+  "Satara", "Bijapur", "Rampur", "Shimoga", "Chandrapur", "Junagadh", "Thrissur", "Alwar", "Bardhaman", "Kulti", 
+  "Kakinada", "Nizamabad", "Parbhani", "Tumkur", "Khammam", "Ozhukarai", "Bihar Sharif", "Panipat", "Darbhanga", 
+  "Bally", "Aizawl", "Dewas", "Ichalkaranji", "Karnal", "Bathinda", "Jalna", "Eluru", "Barasat", "Purnia", "Satna", 
+  "Mau", "Sonipat", "Farrukhabad", "Sagar", "Rourkela", "Durg", "Imphal", "Ratlam", "Hapur", "Arrah", "Anantapur", 
+  "Karimnagar", "Etawah", "Ambarnath", "North Dumdum", "Bharatpur", "Begusarai", "New Delhi", "Gandhinagar", "Chittoor", 
+  "Pondicherry", "Rohtak", "South Dumdum", "Chinsurah", "Dhanbad", "Raichur", "Sitapur", "Firozpur", "Pathankot", 
+  "Chhindwara", "Tirupati", "Anand", "Bhusawal", "Dibrugarh", "Palakkad", "Alappuzha", "Kharagpur", "Tiruvannamalai", 
+  "Nagercoil", "Kanchipuram", "Thanjavur", "Karaikudi", "Haldwani", "Dharamshala", "Itanagar", "Gangtok", "Port Blair"
+];

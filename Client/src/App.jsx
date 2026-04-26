@@ -11,6 +11,7 @@ import SignUp from './pages/navbarPages/SignUp';
 import PostTicket from './pages/navbarPages/PostTicket';
 import BusTicket from './pages/navbarPages/BusTicket';
 import TrainTicket from './pages/navbarPages/TrainTicket';
+import LoginSuccess from './pages/utilityPages/LoginSuccess';
 
 // --- Imports from ./pages/homePages/ ---
 import BookTicket from './pages/homePages/BookTicket';
@@ -18,6 +19,8 @@ import BookTicket from './pages/homePages/BookTicket';
 // --- Imports from ./pages/utilityPages/ (NEW) ---
 import PrivacyPolicy from './pages/utilityPages/PrivacyPolicy';
 import TermsOfService from './pages/utilityPages/TermsOfService';
+import ForgotPassword from './pages/utilityPages/ForgotPassword';
+import ResetPassword from './pages/utilityPages/ResetPassword';
 
 const App = () => {
   return (
@@ -30,6 +33,9 @@ const App = () => {
 
           {/* Routes for navbarPages */}
           <Route path="login" element={<Login />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
+          <Route path="reset-password/:token" element={<ResetPassword />} />
+          <Route path="login/success" element={<LoginSuccess />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="post-ticket" element={<PostTicket />} />
           <Route path="bus-tickets" element={<BusTicket />} />
