@@ -18,7 +18,7 @@ const Login = () => {
         setLoading(true);
         setError('');
         try {
-            const { data } = await axios.post('/api/v1/login', { email, password });
+            const { data } = await axios.post('/api/v1/login', { email, password }, { withCredentials: true });
             setLoading(false);
             login(data.data); 
             alert('Login successful!');
@@ -29,9 +29,7 @@ const Login = () => {
         }
     };
 
-    // Google Login ke liye function
     const handleGoogleLogin = () => {
-        // Backend ke Google auth route par redirect karein
         window.location.href = "http://localhost:3000/api/v1/auth/google";
     };
 
@@ -44,7 +42,6 @@ const Login = () => {
 
                 {error && <p className="text-center text-red-500 bg-red-100 p-2 rounded-md">{error}</p>}
                 
-                {/* --- Email/Password Form --- */}
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                         <label
@@ -65,12 +62,15 @@ const Login = () => {
                         />
                     </div>
                     <div>
-                        <label
-                            htmlFor="password"
-                            className="text-sm font-semibold text-gray-600 block"
-                        >
-                            Password
-                        </label>
+                        <div className="flex justify-between items-center">
+                            <label
+                                htmlFor="password"
+                                className="text-sm font-semibold text-gray-600 block"
+                            >
+                                Password
+                            </label>
+                        
+                        </div>
                         <input
                             type="password"
                             id="password"
@@ -83,6 +83,12 @@ const Login = () => {
                         />
                     </div>
                     <div>
+                          <Link to="/forgot-password" className="text-sm font-semibold text-purple-600 hover:underline">
+                                Forgot Password?
+                            </Link>
+                    </div>
+                    <div>
+                        
                         <button
                             type="submit"
                             className="w-full px-4 py-2 font-bold text-white bg-purple-600 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 transition-colors disabled:bg-purple-400"
@@ -93,14 +99,12 @@ const Login = () => {
                     </div>
                 </form>
 
-                {/* --- OR Divider --- */}
                 <div className="flex items-center">
                     <div className="flex-grow bg-gray-200 h-px"></div>
                     <span className="mx-4 text-sm font-semibold text-gray-400">OR</span>
                     <div className="flex-grow bg-gray-200 h-px"></div>
                 </div>
 
-                {/* --- Google Login Button --- */}
                 <div>
                     <button
                         onClick={handleGoogleLogin}

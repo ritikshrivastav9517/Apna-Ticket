@@ -107,3 +107,62 @@ export const getMeController = async (req, res) => {
     // req.user mein password pehle se hi hata hua hai
     res.status(200).json({ success: true, data: req.user });
 };
+
+// @desc    Forgot password
+// @route   POST /api/v1/forgot-password
+export const forgotPasswordController = async (req, res) => {
+    try {
+        const user = await User.findOne({ email: req.body.email });
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        // Reset token generate karein
+        const resetToken = crypto.randomBytes(20).toString('hex');
+
+        // Token ko hash karke database mein save karein
+        user.resetPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+        user.resetPasswordExpire = Date.now() + 10 * 60 * 1000; // 10 minute
+        await user.save({ validateBeforeSave: false });
+
+        // Reset password link banayein
+        const resetUrl = `${req.protocol}://${req.get('host')}/reset-password/${resetToken}`;
+
+        const message = `You are receiving this email because you (or someone else) has requested the reset of a password. Please make a PUT request to: \n\n ${resetUrl}`;
+
+        // Email bhejein (Nodemailer ka istemal karke)
+        // ... email bhejne ka logic yahan aayega ...
+
+        res.status(200).json({ success: true, message: `Email sent to ${user.email}` });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Server Error' });
+    }
+};
+
+// @desc    Reset password
+// @route   PUT /api/v1/reset-password/:token
+export const resetPasswordController = async (req, res) => {
+    try {
+        // Token ko hash karein
+        const resetPasswordToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
+
+        const user = await User.findOne({
+            resetPasswordToken,
+            resetPasswordExpire: { $gt: Date.now() }
+        });
+
+        if (!user) {
+            return res.status(400).json({ success: false, message: 'Invalid or expired token' });
+        }
+
+        // Naya password set karein
+        user.password = req.body.password;
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpire = undefined;
+        await user.save();
+
+        res.status(200).json({ success: true, message: 'Password updated successfully' });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Server Error' });
+    }
+};

@@ -19,6 +19,9 @@ const userSchema = new mongoose.Schema({
         required: [true, "Please provide a password."],
         minlength: [6, "Password must be at least 6 characters long."],
     },
+    resetPasswordToken: String,
+    
+    resetPasswordExpire: Date,
 }, { timestamps: true });
 
 // Password hashing middleware: Hashes the password before saving the document
