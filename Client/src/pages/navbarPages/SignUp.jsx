@@ -12,7 +12,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       // The URL for your backend endpoint
-      const url = "http://localhost:3000/api/v1/signup";
+      const url = "http://13.48.135.13:3000/api/...";
 
       // The data to send
       const userData = { name, email, password };
